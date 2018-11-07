@@ -3,7 +3,7 @@ from twilio.rest import Client
 import random
 import giphy_client
 from giphy_client.rest import ApiException
-from pprint import pprint
+import time
 
 
 ########################
@@ -83,6 +83,7 @@ def send_sms(body, test, TO, client=client, FROM=FROM, media=None):
             from_=FROM,
             body=body,
             media_url=media)
+        time.sleep(10)  # Adding to try and avoid getting marked as spam by carrier
 
 ##################
 
@@ -156,8 +157,9 @@ for pair in pairs:
     msg = santa_message.format(pair, pairs[pair])
     send_sms(msg, TO=to_num, test=TESTING, media=add_christmas_gify())
 
-send_sms(elf_message_1.format(elf_info.name.values[0]), TO=elf_info.number.values[0], test=TESTING, media=add_christmas_gify())
 
+send_sms(elf_message_1.format(elf_info.name.values[0]), TO=elf_info.number.values[0], test=TESTING, media=add_christmas_gify())
+time.sleep(60)  # Adding to try and avoid getting marked as spam by carrier
 send_sms(elf_message_2 + '\n\n' + str(santas_info), TO=elf_info.number.values[0], test=TESTING)
 
 #############
