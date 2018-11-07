@@ -1,0 +1,7 @@
+type,name,number,relationship
+Santa,Friend1,"+14804504545",Friend2
+Santa,Friend2,"+14804504545",Friend1
+Santa,Friend3,"+14804504545",
+Santa,Friend4,"+14804504545",
+Santa,Friend5,"+14804504545",
+Head Elf,Friend6,"+14804504545",
